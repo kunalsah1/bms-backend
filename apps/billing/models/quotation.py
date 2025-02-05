@@ -20,6 +20,8 @@ class Quotation(models.Model):
     total_materials = models.CharField(max_length=20, null=True, blank=True)
     total_labour = models.CharField(max_length=20, null=True, blank=True)
     total_amount = models.CharField(max_length=20, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     BILL_OR_QUOTATION_CHOICES = [
         ('bill', 'BILL'),
         ('quotation', 'QUOTATION')
