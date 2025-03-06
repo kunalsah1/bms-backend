@@ -1,7 +1,7 @@
 from django.urls import path
 from .views.company import company_handler
 from .views import (company_address_handler, company_working_handler, quotation_handler, DownloadQuotationPDF,
-                    unit_handler)
+                    unit_handler, DashboardHandler, verify_token)
 
 
 urlpatterns = [
@@ -14,5 +14,7 @@ urlpatterns = [
     path("quotation/", quotation_handler, name='quotationHandler'),
     path('download-quotation-pdf/<int:quotation_id>/', DownloadQuotationPDF.as_view(), name='download_quotation_pdf'),
     path('unit/', unit_handler, name='unitHandler'),
-    path('unit/<int:pk>/', unit_handler, name='unitHandler')
+    path('unit/<int:pk>/', unit_handler, name='unitHandler'),
+    path('dashboard/', DashboardHandler.as_view(), name='dashboard-api'),
+    path("verify-token/", verify_token, name='token_verification'),
 ]
